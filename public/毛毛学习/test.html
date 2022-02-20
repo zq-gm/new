@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+    <title>毛毛爱学习</title>
+  </head>
+  <body>
+<!-- 倒计时 -->
+<div>
+  <div>
+    <span>中奖人员：</span>
+    <span id="zhongjiang"></span>
+  </div>
+  <div>
+    <span>所有人员：</span>
+    <span id="allPeople"></span>
+  </div>
+  <div>
+    <button onclick="handleStare()">开始</button>
+    <button onclick="handleStop()">暂停</button>
+  </div>
+</div>
+  </body>
+</html>
+
+<script>
+
+var intervalFlag
+var index = 0
+function handleStare () {
+  intervalFlag = window.setInterval(store,500)
+}
+function handleStop () {
+  window.clearInterval(intervalFlag)
+}
+function store () {
+  var allPeople = ['张三','李四','王五','赵六','钱七','孙八','李二狗','王铁蛋','赵四','周六']
+  if (index < allPeople.length) {
+    index ++
+  } else {
+    index = 0
+  }
+  let val = allPeople[index]
+  document.getElementById('zhongjiang').innerHTML = val
+}
+</script>
+<style>
+ol li {
+  display: inline-block;
+}
+</style>
