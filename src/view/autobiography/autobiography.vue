@@ -12,12 +12,12 @@
             <span style="cursor:pointer;" @click="hangleStep(item.id,index)">
               {{item.title}}
             </span>
-            <div v-if="stepsData[clickIndex]">
+            <div v-if="item.id === clickIndex">
               <el-steps align-center
                 direction="vertical"
                     :space="100">
               <el-step
-                v-for="child in stepsData[clickIndex].children"
+                v-for="child in item.children"
                 :key="child.id"
                 :description="child.description">
                 <template #title>
@@ -70,12 +70,12 @@ export default {
         this.stepsData.push(obj)
       }
     },
-    hangleStep (id, index) {
+    hangleStep (id) {
       console.log(id)
-      if (this.clickIndex === index) {
+      if (this.clickIndex === id) {
         this.clickIndex =-1
       } else {
-        this.clickIndex = index
+        this.clickIndex = id
       }
     },
     // 点击二级
