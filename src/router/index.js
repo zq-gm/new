@@ -6,7 +6,9 @@ import home from '@/view/home/home'
 import Login from '@/view/user/Login'
 import financeReport from '@/view/report/financeReport.vue'
 import expenses from '@/view/expenses/expenses.vue'
+import taskManage from '@/view/task/taskManage.vue'
 import autobiography from '@/view/autobiography/autobiography.vue'
+import passwordManage from '@/view/toolCase/passwordManage.vue'
 
 Vue.use(Router)
 
@@ -56,6 +58,22 @@ const router = new Router({
           path: '/autobiography',
           name: 'autobiography',
           component: autobiography,
+          meta:{
+            hasFooter: false
+          }
+        },
+        {
+          path: '/passwordManage',
+          name: 'passwordManage',
+          component: passwordManage,
+          meta:{
+            hasFooter: false
+          }
+        },
+        {
+          path: '/taskManage',
+          name: 'taskManage',
+          component: taskManage,
           meta:{
             hasFooter: false
           }

@@ -32,6 +32,14 @@ export default {
           index:'3',
           name:'个人自传',
           path:'/autobiography'
+        },{
+          index:'4',
+          name:'密码管理',
+          path:'/passwordManage'
+        },{
+          index:'5',
+          name:'任务管理',
+          path:'/taskManage'
         },
       ]
     }

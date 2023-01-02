@@ -6,8 +6,10 @@
           :space="100">
         <el-step
           v-for="(item,index) in stepsData"
-          :key="item.id"
-          :description="item.description">
+          :key="item.id">
+          <template #description>
+            <span @click="hangleDescription(item.id,index)">{{item.description}}</span>
+          </template>
           <template #title>
             <span style="cursor:pointer;" @click="hangleStep(item.id,index)">
               {{item.title}}
@@ -18,8 +20,10 @@
                     :space="100">
               <el-step
                 v-for="child in item.children"
-                :key="child.id"
-                :description="child.description">
+                :key="child.id">
+                <template #description>
+                  <span @click="hangleDescription(child.id,index)">{{child.description}}</span>
+                </template>
                 <template #title>
                   <span style="cursor:pointer;" @click="hangleChildStep(child.id)">
                     {{child.title}}
@@ -51,7 +55,7 @@ export default {
   methods: {
     getStepsData() {
       this.stepsData = []
-      for(let i = 0; i<20;i++) {
+      for(let i = 0; i<10;i++) {
         let obj = {
           id: i + 1,
           title:'这是标题' + (i+1),
@@ -69,6 +73,9 @@ export default {
         }
         this.stepsData.push(obj)
       }
+    },
+    hangleDescription (id) {
+      console.log(id)
     },
     hangleStep (id) {
       console.log(id)
