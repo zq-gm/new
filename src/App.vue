@@ -20,6 +20,8 @@ export default {
     }
     window.onresize =() => {
       this.resetSize()
+      // 弹出一句话
+      alert('弹出一句话')
     }
   },
   methods:{
